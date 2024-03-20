@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # and then in the next step, we connect to the database like so:
 # [ here, you go to ElephantSQL and copy/paste the string]
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://kxgacqnx:qvjaMSQRj8bBAveiOlMkvY-LVHiE659L@cornelius.db.elephantsql.com/kxgacqnx"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://test:test@db:5432"
 
 # so basically, SQLAlchemy looks through your app's config and specifically
 # looks for this variable for the connection string
@@ -76,4 +76,4 @@ if __name__ == "__main__":
 				# while the server is running, connect to database and create the tables
         db.create_all()        
 		# run the server and enable the debugger
-    app.run(debug=True)
+    app.run(debug=True,port=5000,host='0.0.0.0')
