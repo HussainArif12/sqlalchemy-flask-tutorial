@@ -76,4 +76,4 @@ if __name__ == "__main__":
 				# while the server is running, connect to database and create the tables
         db.create_all()        
 		# run the server and enable the debugger
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

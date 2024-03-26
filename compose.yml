@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "test"]
+    ports:
+      - "5432:5432"
